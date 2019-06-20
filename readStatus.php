@@ -1,10 +1,16 @@
 #!/usr/bin/php
 <?php
 
+// -------------------------------------------------------------------
+// Configuration params
 define('statusUrl', 'http://192.168.2.1/data/Status.json', true);
 define('downstreamKey', 23, true);
 define('upstreamKey', 24, true);
-define('resultsFile', 'measurments.csv', true);
+define('resultsFile', 'measurments.csv', true); // Relative to script
+// -------------------------------------------------------------------
+
+define('absoluteResultsFile', dirname(__FILE__) . '/' . resultsFile, true);
+
 
 $ch = curl_init(statusUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -18,9 +24,9 @@ $response = json_decode($response);
 $downstream = $response[downstreamKey]->varvalue;
 $upstream = $response[upstreamKey]->varvalue;
 
-$createHeaders = !file_exists(resultsFile);
+$createHeaders = !file_exists(absoluteResultsFile);
 
-$fh = fopen(resultsFile, 'a');
+$fh = fopen(absoluteResultsFile, 'a');
 
 if ($createHeaders)
 {
