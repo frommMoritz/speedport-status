@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 
 define('statusUrl', 'http://192.168.2.1/data/Status.json', true);
