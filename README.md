@@ -66,3 +66,7 @@ Usage: ./readStatus.php [-d][-v][-h][-s][-p][-w][-t][-l][--delimiter][--showHead
 
 (c) Moritz Fromm <git@moritz-fromm.de> 2019, Released unter the MIT License
 ```
+
+## Is it overengineered?
+
+Absolutely!
